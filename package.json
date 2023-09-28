@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "aqueduct-widget": "^0.7.12",
+    "aqueduct-widget": "^0.7.13",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

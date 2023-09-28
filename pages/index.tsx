@@ -39,7 +39,7 @@ const config = createConfig(
     getDefaultConfig({
         // Required API Keys
         alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_KEY, // or infuraId
-        walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+        walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID ?? '',
 
         // Required
         appName: "Aqueduct",
@@ -50,13 +50,13 @@ const config = createConfig(
 const customTokens = [
     {
         name: 'Alongside Crypto Index',
-        address: '0x5D8B4C2554aeB7e86F387B4d6c00Ac33499Ed01f', // this is just the fdaix address, update to 
+        address: '0x5D8B4C2554aeB7e86F387B4d6c00Ac33499Ed01f' as `0x${string}`, // this is just the fdaix address, update to 
         symbol: 'AMKT',
         decimals: 18,
         logoURI: '/amkt.png', // references /public directory,
         underlyingToken: {
             name: 'Alongside Crypto Index',
-            address: '0x15F0Ca26781C3852f8166eD2ebce5D18265cceb7', // fdai address
+            address: '0x15F0Ca26781C3852f8166eD2ebce5D18265cceb7' as `0x${string}`, // fdai address
             symbol: 'AMKT',
             decimals: 18,
             logoURI: '/amkt.png'
@@ -64,12 +64,12 @@ const customTokens = [
     },
     {
         name: "USD Coin",
-        address: "0x42bb40bF79730451B11f6De1CbA222F17b87Afd7",
+        address: "0x42bb40bF79730451B11f6De1CbA222F17b87Afd7" as `0x${string}`,
         symbol: "USDCx",
         decimals: 18,
         underlyingToken: {
             name: "USD Coin",
-            address: "0xbe49ac1EadAc65dccf204D4Df81d650B50122aB2",
+            address: "0xbe49ac1EadAc65dccf204D4Df81d650B50122aB2" as `0x${string}`,
             symbol: "USDC",
             decimals: 18, // fusdc has 18 decimals
             logoURI: "/usdc-logo.png",

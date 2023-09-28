@@ -2016,10 +2016,10 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-aqueduct-widget@^0.7.12:
-  version "0.7.12"
-  resolved "https://registry.yarnpkg.com/aqueduct-widget/-/aqueduct-widget-0.7.12.tgz#276111042764b75510620678f8fd81fe039c538f"
-  integrity sha512-1tQVb4RrdS802Swhya+m3M9yMN99UJCZkrVE30Qsxy4mTBKzxr9YcUmm4oJPg6h2vTDwEfQDyvAu2wSlYolaeA==
+aqueduct-widget@^0.7.13:
+  version "0.7.13"
+  resolved "https://registry.yarnpkg.com/aqueduct-widget/-/aqueduct-widget-0.7.13.tgz#a349cb147da49c89598c4cc759f3a6de61d03578"
+  integrity sha512-Cou0AihmRLz6fi4wnRpM+JnZFhK7vvL/XNVWLwvZrgWxHU7FjEbhJuSZnhXIqK3zfFefrkLXDO/4cWT5jZso1w==
   dependencies:
     "@headlessui/react" "^1.7.14"
     "@rainbow-me/rainbowkit" "^0.11.0"
