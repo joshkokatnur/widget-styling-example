@@ -2016,10 +2016,10 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-aqueduct-widget@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/aqueduct-widget/-/aqueduct-widget-0.7.13.tgz#a349cb147da49c89598c4cc759f3a6de61d03578"
-  integrity sha512-Cou0AihmRLz6fi4wnRpM+JnZFhK7vvL/XNVWLwvZrgWxHU7FjEbhJuSZnhXIqK3zfFefrkLXDO/4cWT5jZso1w==
+aqueduct-widget@^0.7.14:
+  version "0.7.14"
+  resolved "https://registry.yarnpkg.com/aqueduct-widget/-/aqueduct-widget-0.7.14.tgz#ead238608228f69da3b53fd062452f7929925fad"
+  integrity sha512-OHgd/RjL/XwVtBqJLuTjqUpvGohZ2qOIb3BnEcVEd/aJ3mBCV2nm0l0v04cFstvxoiLqMJCOhzbl7jims8ryqw==
   dependencies:
     "@headlessui/react" "^1.7.14"
     "@rainbow-me/rainbowkit" "^0.11.0"
@@ -2033,6 +2033,7 @@ aqueduct-widget@^0.7.13:
     react-icons "^4.11.0"
     react-tooltip "^5.13.1"
     react-transition-group "^4.4.5"
+    style-inject "^0.3.0"
     styled-components "^5.3.11"
     viem "^1.9.5"
     wagmi "^1.3.11"
@@ -6491,6 +6492,11 @@ strip-json-comments@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
+
+style-inject@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/style-inject/-/style-inject-0.3.0.tgz#d21c477affec91811cc82355832a700d22bf8dd3"
+  integrity sha512-IezA2qp+vcdlhJaVm5SOdPPTUu0FCEqfNSli2vRuSIBbu5Nq5UvygTk/VzeCqfLz2Atj3dVII5QBKGZRZ0edzw==
 
 style-value-types@5.0.0:
   version "5.0.0"
