@@ -1,11 +1,8 @@
 import React from "react";
-import { ConnectKitProvider, getDefaultConfig } from "connectkit";
-import { WagmiConfig, createConfig } from "wagmi";
-import { polygonMumbai } from "wagmi/chains";
-
-const chains = [polygonMumbai];
-
+import { DynamicContextProvider, useDynamicContext } from "@dynamic-labs/sdk-react";
+import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
 import TWAMMWidget, { darkTheme } from "aqueduct-widget";
+import { useAccount } from "wagmi";
 
 const theme = {
   ...darkTheme,
@@ -35,22 +32,10 @@ const theme = {
   accentBackgroundColor: '#FFFFFF',
 }
 
-const config = createConfig(
-    getDefaultConfig({
-        // Required API Keys
-        alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_KEY, // or infuraId
-        walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID ?? '',
-
-        // Required
-        appName: "Aqueduct",
-        chains
-    }),
-);
-
 const customTokens = [
     {
         name: 'Alongside Crypto Index',
-        address: '0x5D8B4C2554aeB7e86F387B4d6c00Ac33499Ed01f' as `0x${string}`, // this is just the fdaix address, update to 
+        address: '0x5D8B4C2554aeB7e86F387B4d6c00Ac33499Ed01f' as `0x${string}`, // this is just the fdaix address, update to correct address for testing
         symbol: 'AMKT',
         decimals: 18,
         logoURI: '/amkt.png', // references /public directory,
@@ -80,29 +65,58 @@ const customTokens = [
 
 function Widget() {
     return (
-        <WagmiConfig config={config}>
-            <ConnectKitProvider>
-                <div
-                    style={{
-                        background: '#F8FAFC',
-                        height: '100vh',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
-                    <div
-                        style={{width: '30rem'}}
-                    >
-                        <TWAMMWidget
-                            theme={theme}
-                            tokenOption={customTokens}
-                        />
-                    </div>
-                </div>
-            </ConnectKitProvider>
-        </WagmiConfig>
+        <DynamicContextProvider
+            settings={{
+                initialAuthenticationMode: 'connect-only',
+                environmentId: process.env.NEXT_PUBLIC_ENV_ID ?? ''
+            }}
+        >
+            <DynamicWagmiConnector>
+                <WidgetWrapper/>
+            </DynamicWagmiConnector>
+        </DynamicContextProvider>
     );
 };
+
+function WidgetWrapper() {
+
+    const { setShowAuthFlow } = useDynamicContext();
+
+    return (
+        <div
+            className="flex flex-col h-screen bg-[#F8FAFC]"
+        >
+            <WalletActions />
+            <div className="h-full flex items-center justify-center">
+                <div className="w-[30rem] pb-[12rem]">
+                    <TWAMMWidget
+                        theme={theme}
+                        tokenOption={customTokens}
+                        onConnectWalletClick={() => {setShowAuthFlow(true)}}
+                    />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function WalletActions() {
+
+    const { handleLogOut } = useDynamicContext();
+    const { address, isConnected } = useAccount();
+
+    return (
+        <div className="p-4 space-y-2 text-xs">
+            <p>wallet address: {address}</p>
+            <button
+                className="bg-black/5 border-2 rounded-xl px-3 py-2 disabled:opacity-25"
+                onClick={() => {handleLogOut()}}
+                disabled={!isConnected}
+            >
+                disconnect wallet
+            </button>
+        </div>
+    )
+}
 
 export default Widget;

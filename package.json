@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "aqueduct-widget": "^0.7.14",
+    "@dynamic-labs/sdk-react": "^0.18.100-viem.14",
+    "@dynamic-labs/wagmi-connector": "^0.18.100-viem.14",
+    "aqueduct-widget": "^0.7.20",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "wagmi": "^1.4.1"
   },
   "devDependencies": {
     "@types/node": "latest",
